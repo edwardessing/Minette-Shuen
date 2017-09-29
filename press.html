@@ -13,12 +13,14 @@ layout: default
 		</a>
 		{% endif %}
 	{% endfor %} -->
-	{% assign image_files = site.static_files | where: "image", true %}
-	{% for myimage in image_files %}
-		<a class='col-xs-12 col-sm-3 img' href='{{ myimage.path }}' title=''>
-			<img class='img-responsive img-thumb' src='{{ myimage.path }}' alt='{{ myimage.path }}' />
-		</a>
-	{% endfor %}
+	<div class='row gallery' style='margin-bottom:40px;'>
+		{% assign image_files = site.static_files | where: "image", true %}
+		{% for myimage in image_files %}
+			<a class='col-xs-12 col-sm-3 img' href='{{ myimage.path }}' title=''>
+				<img class='img-responsive img-thumb' src='{{ myimage.path }}' alt='{{ myimage.path }}' />
+			</a>
+		{% endfor %}
+	</div>
 
 </div>
 
