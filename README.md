@@ -1,1 +1,1 @@
-# Edward Essing — Art
+# Minette Shuen
