@@ -2,25 +2,24 @@
 layout: default
 ---
 
-<div class="container">
+<div class='container'>
 
 	<!-- LATEST -->
-	{% assign galleries = site.galleries | sort: 'title' | reverse %}
-	{% for gallery in galleries limit:1 %}
+	{% assign collections = site.collections | sort: 'date' | reverse %}
+	{% for collection in collections limit:1 %}
 	<div class='row gallery' style='margin-bottom:40px;'>
 		<div class='col-xs-12'>
-			<a href="{{ gallery.url | prepend:site.baseurl | prepend:site.url }}">
-				<h1>{{ gallery.title }}</h1>
+			<a href='{{ collection.url | prepend:site.baseurl | prepend:site.url }}'>
+				<h1 style='text-transform:uppercase;'>{{ collection.title }}</h1>
 			</a>
 		</div>
 
 		{% for category in site.data.categories %}
 			<div class='col-xs-12'>
 				<h3 style='text-transform:capitalize;'>{{ category.name }}</h3>
-				<hr>
 			</div>
 			{% for image in site.static_files %}
-				{% assign new_var = gallery.title | append: '/' | append: category.name %}
+				{% assign new_var = collection.title | append: '/' | append: category.name %}
 				{% if image.path contains new_var %}
 				<a class='col-xs-12 col-sm-3 img' href='{{ site.baseurl }}{{ image.path }}' title=''>
 					<img class='img-responsive img-thumb' src='{{ site.baseurl }}{{ image.path }}' alt='{{ image.path }}' />
@@ -33,11 +32,11 @@ layout: default
 
 	<!-- ARCHIVE -->
 	<div class='archive'>
-		<h1>Archive</h1>
-		{% assign galleries = site.galleries | sort: 'title' | reverse %}
-		{% for gallery in galleries %}
-		<a href="{{ gallery.url | prepend:site.baseurl | prepend:site.url }}">
-			<h2>{{ gallery.title }}</h2>
+		<h1>Collections</h1>
+		{% assign collections = site.collections | sort: 'title' | reverse %}
+		{% for collection in collections %}
+		<a href='{{ collection.url | prepend:site.baseurl | prepend:site.url }}'>
+			<h2>{{ collection.title }}</h2>
 		</a>
 		{% endfor %}
 	</div>

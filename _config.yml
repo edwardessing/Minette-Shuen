@@ -6,9 +6,9 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: edward essing - art
-email: edwardessing@gmail.com
-description: 'edward essing - art'
+title: Minette Shuen
+email:
+description: 'Minette Shuen'
 baseurl: ''
 url: '' # the base hostname & protocol for your site
 
@@ -42,16 +42,20 @@ defaults:
       featured-image: ''
   - scope:
       path: ''
-      type: galleries
+      type: collections
     values:
-      layout: gallery
+      layout: collection
       tags: []
       featured-image: ''
       homepage-thumbnail: ''
+  - scope:
+      path: 'assets/press'
+    values:
+      image: true
 
 # Collections
 collections:
-  galleries:
+  collections:
     output: true
     permalink: /:collection/:path/
 

@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class='container'>
+
+<!-- 	<div class='archive'>
+		<h1>Collections</h1>
+		{% assign collections = site.collections | sort: 'title' | reverse %}
+		{% for collection in collections %}
+		<a href='{{ collection.url | prepend:site.baseurl | prepend:site.url }}'>
+			<h2>{{ collection.title }}</h2>
+		</a>
+		{% endfor %}
+	</div>
+ -->
+	<div class='row gallery' style='margin-bottom:40px;'>
+		{% assign collections = site.collections | sort: 'date' | reverse %}
+		{% for collection in collections %}
+		<div class='col-xs-12 col-sm-6'>
+			<a href='{{ collection.url | prepend:site.baseurl | prepend:site.url }}'>
+				<h1 style='text-transform:uppercase;'>{{ collection.title }}</h1>
+				{% for image in site.static_files %}
+					{% assign new_var = collection.title | append: '/' | append: 'editorial' | append: '/' | append: '1.jpg' %}
+					{% if image.path contains new_var %}
+					<img class='img-responsive' src='{{ site.baseurl }}{{ image.path }}' alt='{{ image.path }}' />
+					{% endif %}
+				{% endfor %}
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% include pagination.html %}

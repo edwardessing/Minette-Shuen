@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="container">
+
+	<!-- LATEST -->
+<!-- 	{% for image in site.static_files %}
+		{% assign new_var = collection.title | append: '/' | append: category.name %}
+		{% if image.path contains new_var %}
+		<a class='col-xs-12 col-sm-3 img' href='{{ site.baseurl }}{{ image.path }}' title=''>
+			<img class='img-responsive img-thumb' src='{{ site.baseurl }}{{ image.path }}' alt='{{ image.path }}' />
+		</a>
+		{% endif %}
+	{% endfor %} -->
+	{% assign image_files = site.static_files | where: "image", true %}
+	{% for myimage in image_files %}
+		<a class='col-xs-12 col-sm-3 img' href='{{ myimage.path }}' title=''>
+			<img class='img-responsive img-thumb' src='{{ myimage.path }}' alt='{{ myimage.path }}' />
+		</a>
+	{% endfor %}
+
+</div>
+
+{% include pagination.html %}
