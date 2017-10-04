@@ -66,5 +66,7 @@ $('.gallery').magnificPopup({
 	}
 });
 
+$('html').hide()
+
 /* script end */
 });
